@@ -1,38 +1,210 @@
-.App {
-  text-align: center;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button{
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+}
+
+button:hover{
+  transform: scale(1.02);
+  transition: transform 200ms ease-in-out;
+}
+
+.container{
+  inline-size: 60%;
+  margin-block: 20px;
+  margin-inline: auto;
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+.btn-add{
+  background-color: hsl(120, 80%, 30%);
+  border: none;
+  border-radius: 5px;
   color: white;
+  font-weight: bold;
+  block-size: 50px;
+  inline-size: 100px;
+  font-size: 2rem;
+  margin-inline-start: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-remove{
+  background-color: hsl(360, 80%, 30%);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  block-size: 50px;
+  inline-size: 100px;
+  font-size: 2rem;
+  margin-inline-start: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header{
+  display: flex;
+  padding-block-end: 20px;
+}
+
+.header h1{
+  padding-inline-start: 20px;
+}
+
+.reminder{
+  border-inline-start: 5px solid hsl(120, 80%, 30%);
+}
+
+.form{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.form label{
+  display: flex;
+  flex-flow: column;
+  inline-size: 50%;
+  margin-block: 10px;
+}
+
+label.label-checkbox{
+  display: flex;
+  flex-flow: row;
+}
+
+[type="checkbox"]{
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+[type="submit"]{
+  background-color: hsl(120, 80%, 30%);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  inline-size: 100%;
+  cursor: pointer;
+}
+
+.todo-list{
+  padding: 20px;
+}
+
+.todo-item{
+  padding-inline: 10px;
+  padding-block: 5px;
+  /* border-block-end: 2px solid rgb(32, 175, 218); */
+  cursor: pointer;
+  margin-block-end: 5px;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: auto auto auto;
+}
+
+.todo-item *:nth-child(1){
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.todo-item *:nth-child(2){
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+.todo-item *:nth-child(3){
+  grid-row: 3/4;
+  grid-column: 1/2;
+}
+.todo-item *:nth-child(4){
+  grid-row: 1/-1;
+  grid-column: 2/3;
+}
+
+.btn-delete{
+  border: none;
+  background-color: transparent;
+  color: hsl(360, 80%, 30%);
+  font-weight: 900;
+  inline-size: auto;
+  block-size: auto;
+  font-size: 2rem;
+}
+
+.btn-delete:hover{
+  transform: scale(1.2);
 }
